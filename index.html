@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shri Swami Samarth Enterprises</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #eef3f7, #dde7f0);
+      color: #1f2d3d;
+      overflow-y: auto; /* ✅ FIX: allow scrolling */
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: linear-gradient(90deg, #1e3c72, #2a5298);
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header img { width: 70px; }
+
+    header h1 { margin: 0; color: #fff; font-size: 24px; }
+    header p { margin: 2px 0 0; color: #eaeaea; font-style: italic; }
+
+    section {
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 40px;
+      background: #fff;
+      border-radius: 25px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+    }
+
+    .hero img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      line-height: 1.7;
+      background: #f7faff;
+      padding: 20px;
+      border-left: 6px solid #f9b233;
+      border-radius: 10px;
+    }
+
+    .products {
+      background: linear-gradient(135deg, #f9d423, #f83600);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .products::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('cement-texture.png');
+      opacity: 0.08;
+      pointer-events: none;
+    }
+
+    .products h2,
+    .dealers h2 { text-align: center; margin-bottom: 40px; }
+
+    .product-grid,
+    .dealer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: #fff;
+      color: #333;
+      padding: 25px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      transition: transform .3s ease;
+    }
+
+    .card:hover { transform: translateY(-8px); }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: contain;
+      transition: transform .4s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.08);
+    }
+
+    .dealers {
+      background: linear-gradient(135deg, #fff3d6, #ffe9b3);
+    }
+
+    .dealer-text {
+      margin-top: 30px;
+      background: #fff;
+      padding: 20px;
+      border-left: 6px solid #f39c12;
+      border-radius: 10px;
+      font-size: 17px;
+    }
+
+    .float-btn {
+      position: fixed;
+      right: 20px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+      z-index: 2000;
+    }
+
+    .call { bottom: 90px; background: #0f9d58; }
+    .whatsapp { bottom: 20px; background: #25d366; }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all .8s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="logo.jpg" />
+  <div>
+    <h1>Shri Swami Samarth Enterprises</h1>
+    <p>Building India’s Future</p>
+  </div>
+</header>
+
+<section class="hero reveal">
+  <img src="WhatsApp Image 2026-01-10 at 21.04.40.jpeg" />
+  <p><strong>About Us :</strong> We Deal in Cement, Construction Chemical at wholesale prices. Also direct project supply bag and loose cement bulkers.</p>
+</section>
+
+<section class="products reveal">
+  <h2>Our Products</h2>
+  <div class="product-grid">
+    <div class="card"><img src="30.jpg"><p>Premium Cement Brands</p></div>
+    <div class="card"><img src="28.jpg"><p>UltraTech Weather Pro</p></div>
+    <div class="card"><img src="25.jpg"><p>UltraTech Building Products</p></div>
+    <div class="card"><img src="26.jpg"><p>Chettinad Cement</p></div>
+    <div class="card"><img src="24.jpg"><p>UltraTech Fixoblock</p></div>
+    <div class="card"><img src="29.jpg"><p>Araldite Adhesives</p></div>
+    <div class="card"><img src="27.jpg"><p>JK Super Strong Cement</p></div>
+  </div>
+</section>
+
+<section class="dealers reveal">
+  <h2>Authorised Dealers</h2>
+  <div class="dealer-grid">
+    <div class="card"><img src="23.jpg"><p>Chettinad Cement</p></div>
+    <div class="card"><img src="2 (1).jpg"><p>Birla Shakti Cement</p></div>
+    <div class="card"><img src="5.jpg"><p>JK Cement</p></div>
+    <div class="card"><img src="4.jpg"><p>UltraTech Cement</p></div>
+  </div>
+  <div class="dealer-text">Authorised Dealers : Chettinad Cement · Birla Shakti Cement · JK Cement · UltraTech</div>
+</section>
+
+<section id="contact" class="reveal">
+  <h2>Contact Us</h2>
+  <p class="dealer-text">
+    <strong>Phone Number :</strong> <a href="tel:9370729725">📞 Call Now</a><br><br>
+    <strong>Email Address :</strong> manojkorale83@gmail.com<br><br>
+    <strong>Location :</strong> E-2 Siddeshwar Shopping Complex, Market Yard Road, Solapur.
+  </p>
+</section>
+
+<footer style="background:#1e272e;color:#fff;padding:50px 20px;text-align:center;">
+  <h2 style="margin-top:0;">Shri Swami Samarth Enterprises</h2>
+  <p>Wholesale Cement & Construction Chemicals Supplier</p>
+  <p style="margin:20px 0;">📞 9370729725 | ✉️ manojkorale83@gmail.com</p>
+  <p>E-2 Siddeshwar Shopping Complex, Market Yard Road, Solapur</p>
+  <p style="opacity:.6;margin-top:30px;">© 2026 All Rights Reserved</p>
+</footer>
+
+<a href="tel:9370729725" class="float-btn call">📞</a>
+<a href="https://wa.me/919370729725" target="_blank" class="float-btn whatsapp">💬</a>
+
+<script>
+  const items = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('show');
+    });
+  }, { threshold: 0.15 });
+  items.forEach(i => obs.observe(i));
+</script>
+
+</body>
+</html>
