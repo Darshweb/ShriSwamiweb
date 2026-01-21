@@ -4,8 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shri Swami Samarth Enterprises</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --primary-blue: #1e3c72;
+      --secondary-blue: #2a5298;
+      --accent-orange: #f39c12;
+      --light-bg: #f4f7f9;
+      --text-dark: #2d3436;
+      --white: #ffffff;
+    }
+
     * { box-sizing: border-box; }
 
     html {
@@ -14,150 +24,235 @@
 
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #eef3f7, #dde7f0);
-      color: #1f2d3d;
-      overflow-y: auto; /* ✅ FIX: allow scrolling */
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
+    /* Header Styling */
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: linear-gradient(90deg, #1e3c72, #2a5298);
-      padding: 15px 30px;
+      background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+      padding: 12px 5%;
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
-    header img { width: 70px; }
+    header img { 
+      width: 65px; 
+      height: 65px; 
+      object-fit: contain; 
+      border-radius: 8px;
+      background: white;
+      padding: 2px;
+    }
 
-    header h1 { margin: 0; color: #fff; font-size: 24px; }
-    header p { margin: 2px 0 0; color: #eaeaea; font-style: italic; }
+    header h1 { 
+      margin: 0; 
+      color: #fff; 
+      font-size: 22px; 
+      letter-spacing: 0.5px;
+    }
+    
+    header p { 
+      margin: 0; 
+      color: #cbdcf7; 
+      font-size: 14px; 
+      font-style: italic;
+      font-weight: 300;
+    }
 
+    /* Section Containers */
     section {
-      max-width: 1200px;
-      margin: 80px auto;
+      max-width: 1100px;
+      margin: 60px auto;
       padding: 40px;
-      background: #fff;
-      border-radius: 25px;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    /* Hero Section */
+    .hero {
+      border-top: 5px solid var(--accent-orange);
     }
 
     .hero img {
       width: 100%;
+      height: auto;
       border-radius: 15px;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
     .hero p {
       font-size: 18px;
-      line-height: 1.7;
-      background: #f7faff;
-      padding: 20px;
-      border-left: 6px solid #f9b233;
-      border-radius: 10px;
+      background: #fff9f0;
+      padding: 25px;
+      border-left: 6px solid var(--accent-orange);
+      border-radius: 0 15px 15px 0;
+      margin: 0;
     }
 
-    .products {
-      background: linear-gradient(135deg, #f9d423, #f83600);
-      color: #fff;
+    /* Titles */
+    h2 {
+      font-size: 28px;
+      color: var(--primary-blue);
+      text-align: center;
+      margin-bottom: 40px;
       position: relative;
-      overflow: hidden;
+      padding-bottom: 10px;
     }
 
-    .products::before {
-      content: "";
+    h2::after {
+      content: '';
       position: absolute;
-      inset: 0;
-      background-image: url('cement-texture.png');
-      opacity: 0.08;
-      pointer-events: none;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--accent-orange);
+      border-radius: 2px;
     }
 
-    .products h2,
-    .dealers h2 { text-align: center; margin-bottom: 40px; }
-
+    /* Grids */
     .product-grid,
     .dealer-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
     }
 
+    /* Cards */
     .card {
       background: #fff;
-      color: #333;
-      padding: 25px;
-      border-radius: 20px;
+      padding: 20px;
+      border-radius: 15px;
       text-align: center;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-      transition: transform .3s ease;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid #eee;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
     }
 
-    .card:hover { transform: translateY(-8px); }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      border-color: var(--accent-orange);
+    }
 
     .card img {
       width: 100%;
-      height: 150px;
+      height: 140px;
       object-fit: contain;
-      transition: transform .4s ease;
+      margin-bottom: 15px;
     }
 
-    .card:hover img {
-      transform: scale(1.08);
+    .card p {
+      margin: 10px 0 0;
+      font-weight: 600;
+      font-size: 15px;
+      color: #444;
     }
 
-    .dealers {
-      background: linear-gradient(135deg, #fff3d6, #ffe9b3);
-    }
+    /* Background variations for sections */
+    .dealers { background: #fffcf5; }
+    .products { background: #fafbfc; }
 
     .dealer-text {
-      margin-top: 30px;
-      background: #fff;
+      margin-top: 35px;
+      background: var(--white);
       padding: 20px;
-      border-left: 6px solid #f39c12;
-      border-radius: 10px;
-      font-size: 17px;
+      border-radius: 12px;
+      font-size: 16px;
+      border: 1px dashed var(--accent-orange);
+      text-align: center;
     }
 
+    /* Contact Section */
+    #contact h2 { color: var(--primary-blue); }
+    #contact .dealer-text {
+      text-align: left;
+      line-height: 2;
+    }
+    #contact a {
+      color: var(--secondary-blue);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Floating Action Buttons */
     .float-btn {
       position: fixed;
-      right: 20px;
-      width: 55px;
-      height: 55px;
+      right: 25px;
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 26px;
+      font-size: 28px;
       color: #fff;
       text-decoration: none;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
       z-index: 2000;
+      transition: transform 0.3s ease;
     }
 
-    .call { bottom: 90px; background: #0f9d58; }
-    .whatsapp { bottom: 20px; background: #25d366; }
+    .float-btn:hover { transform: scale(1.1); }
+
+    .call { bottom: 100px; background: #0f9d58; animation: pulse 2s infinite; }
+    .whatsapp { bottom: 25px; background: #25d366; animation: pulse 2s infinite 1s; }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
 
     /* Scroll reveal */
     .reveal {
       opacity: 0;
-      transform: translateY(40px);
-      transition: all .8s ease;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     }
 
     .reveal.show {
       opacity: 1;
       transform: translateY(0);
     }
+
+    footer {
+      background: #1e272e;
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    footer h2 { color: white; margin-bottom: 10px; }
+    footer h2::after { background: var(--accent-orange); }
+
+    @media (max-width: 768px) {
+      header { flex-direction: row; padding: 10px 15px; }
+      header h1 { font-size: 18px; }
+      section { margin: 30px 15px; padding: 25px; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <img src="logo.jpg" />
+  <img src="logo.jpg" alt="Logo" />
   <div>
     <h1>Shri Swami Samarth Enterprises</h1>
     <p>Building India’s Future</p>
@@ -165,7 +260,7 @@
 </header>
 
 <section class="hero reveal">
-  <img src="WhatsApp Image 2026-01-10 at 21.04.40.jpeg" />
+  <img src="WhatsApp Image 2026-01-10 at 21.04.40.jpeg" alt="Hero Image" />
   <p><strong>About Us :</strong> We Deal in Cement, Construction Chemical at wholesale prices. Also direct project supply bag and loose cement bulkers.</p>
 </section>
 
@@ -181,7 +276,7 @@
 </section>
 
 <section class="products reveal">
-  <h2>UltraTech Products:</h2>
+  <h2>UltraTech Products</h2>
   <div class="product-grid">
     <div class="card"><img src="Ultratech (5).jpg"><p>UltraTech Fixoblock</p></div>
     <div class="card"><img src="Ultratech (4).jpg"><p>UltraTech ReadiPlast</p></div>
@@ -192,7 +287,7 @@
 </section>
 
 <section class="products reveal">
-  <h2>Chettinad Products:</h2>
+  <h2>Chettinad Products</h2>
   <div class="product-grid">
     <div class="card"><img src="che.webp"><p>Chettinad All Products</p></div>
     <div class="card"><img src="Chetiind1.jpg"><p>Chettinad Composite</p></div>
@@ -200,7 +295,7 @@
 </section>
 
 <section class="products reveal">
-  <h2>ACC Products:</h2>
+  <h2>ACC Products</h2>
   <div class="product-grid">
     <div class="card"><img src="ACC.jpg"><p>ACC Concrete XTRA STRONG</p></div>
     <div class="card"><img src="1acc.jpg"><p>All Products of ACC</p></div>
@@ -208,21 +303,21 @@
 </section>
 
 <section class="products reveal">
-  <h2>Birla Shakti Cement Product:</h2>
+  <h2>Birla Shakti Cement Product</h2>
   <div class="product-grid">
     <div class="card"><img src="Birla Shakti.jpg"><p>Birla Shakti Cement</p></div>
   </div>
 </section>
 
 <section class="products reveal">
-  <h2>Zuari Cement Product:</h2>
+  <h2>Zuari Cement Product</h2>
   <div class="product-grid">
     <div class="card"><img src="Zuari Cement.jpg"><p>Zuari Cement</p></div>
   </div>
 </section>
 
 <section class="products reveal">
-  <h2>JK Super Cement Products:</h2>
+  <h2>JK Super Cement Products</h2>
   <div class="product-grid">
     <div class="card"><img src="JK Super Cement.jpg"><p>JK Super Strong </p></div>
     <div class="card"><img src="JK.jpg"><p>All Products of JK Super Strong</p></div>
@@ -230,21 +325,21 @@
 </section>
 
 <section class="products reveal">
-  <h2>MYK Arment Products:</h2>
+  <h2>MYK Arment Products</h2>
   <div class="product-grid">
     <div class="card"><img src="Myk Arment.jpg"><p>MYK Arment All Products</p></div>
   </div>
 </section>
 
 <section class="products reveal">
-  <h2>Araldite Products:</h2>
+  <h2>Araldite Products</h2>
   <div class="product-grid">
     <div class="card"><img src="Aradlite.jpg"><p>Araldite all Products</p></div>
   </div>
 </section>
 
 <section class="products reveal">
-  <h2>DR Fixit Products:</h2>
+  <h2>DR Fixit Products</h2>
   <div class="product-grid">
     <div class="card"><img src="drfixit.avif"><p>DR Fixit all Products</p></div>
   </div>
@@ -252,31 +347,33 @@
 
 <section id="contact" class="reveal">
   <h2>Contact Us</h2>
-  <p class="dealer-text">
-    <strong>Phone Number :</strong> <a href="tel:9370729725">📞 Call Now</a><br><br>
-    <strong>Email Address :</strong> manojkorale83@gmail.com<br><br>
-    <strong>Location :</strong> E-2 Siddeshwar Shopping Complex, Market Yard Road, Solapur.
-  </p>
+  <div class="dealer-text">
+    <strong>📞 Phone Number :</strong> <a href="tel:9370729725">9370729725</a><br>
+    <strong>✉️ Email Address :</strong> manojkorale83@gmail.com<br>
+    <strong>📍 Location :</strong> E-2 Siddeshwar Shopping Complex, Market Yard Road, Solapur.
+  </div>
 </section>
 
-<footer style="background:#1e272e;color:#fff;padding:50px 20px;text-align:center;">
-  <h2 style="margin-top:0;">Shri Swami Samarth Enterprises</h2>
+<footer>
+  <h2>Shri Swami Samarth Enterprises</h2>
   <p>Wholesale Cement & Construction Chemicals Supplier</p>
   <p style="margin:20px 0;">📞 9370729725 | ✉️ manojkorale83@gmail.com</p>
   <p>E-2 Siddeshwar Shopping Complex, Market Yard Road, Solapur</p>
-  <p style="opacity:.6;margin-top:30px;">© 2026 All Rights Reserved</p>
+  <p style="opacity:.6;margin-top:30px; font-size: 13px;">© 2026 All Rights Reserved</p>
 </footer>
 
-<a href="tel:9370729725" class="float-btn call">📞</a>
-<a href="https://wa.me/919370729725" target="_blank" class="float-btn whatsapp">💬</a>
+<a href="tel:9370729725" class="float-btn call" title="Call Us">📞</a>
+<a href="https://wa.me/919370729725" target="_blank" class="float-btn whatsapp" title="WhatsApp Us">💬</a>
 
 <script>
   const items = document.querySelectorAll('.reveal');
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add('show');
+      if (e.isIntersecting) {
+        e.target.classList.add('show');
+      }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.1 });
   items.forEach(i => obs.observe(i));
 </script>
 
